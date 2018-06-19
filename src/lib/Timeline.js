@@ -1211,7 +1211,7 @@ export default class ReactCalendarTimeline extends Component {
       <div style={this.props.style} ref={el => (this.container = el)} className='react-calendar-timeline'>
         <div style={outerComponentStyle} className='rct-outer'>
           {sidebarWidth > 0 ? this.sidebar(height, groupHeights, headerHeight) : null}
-          <div scrollRef={el => (this.scrollComponent = el)}
+          <div ref={el => (this.scrollComponent = el)}
                className='rct-scroll'
                style={scrollComponentStyle}
                onScroll={this.onScroll}
