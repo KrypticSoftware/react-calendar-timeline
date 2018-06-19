@@ -21,7 +21,8 @@ export default class Header extends Component {
     subHeaderLabelFormats: PropTypes.object.isRequired,
     fixedHeader: PropTypes.oneOf(['fixed', 'sticky', 'none']),
     stickyOffset: PropTypes.number.isRequired,
-    headerPosition: PropTypes.oneOf(['top', 'bottom', 'fixed'])
+    headerPosition: PropTypes.oneOf(['top', 'bottom', 'fixed']),
+    headerRef: PropTypes.func.isRequired
   }
 
   static defaultProps = {
@@ -117,7 +118,7 @@ export default class Header extends Component {
     const {
       canvasTimeStart, canvasTimeEnd, canvasWidth, lineHeight,
       visibleTimeStart, visibleTimeEnd, minUnit, timeSteps, fixedHeader, stickyOffset, headerPosition,
-      headerLabelGroupHeight, headerLabelHeight, hasRightSidebar, width
+      headerLabelGroupHeight, headerLabelHeight, hasRightSidebar, width, headerRef
     } = this.props
 
     const ratio = canvasWidth / (canvasTimeEnd - canvasTimeStart)
@@ -207,7 +208,7 @@ export default class Header extends Component {
     }
 
     return (
-      <div headerRef={el => (this.header = el)} key='header' className='rct-header' onTouchStart={this.touchStart} onTouchEnd={this.touchEnd} onClick={this.periodClick} style={headerStyle}>
+      <div ref={headerRef} key='header' className='rct-header' onTouchStart={this.touchStart} onTouchEnd={this.touchEnd} onClick={this.periodClick} style={headerStyle}>
         {timeLabels}
       </div>
     )

@@ -1,5 +1,5 @@
 {
-  "name": "react-calendar-timeline-forked",
+  "name": "react-calendar-timeline-react-16",
   "version": "0.15.1",
   "description": "react calendar timeline forked to add optional reference line at a specified time, overriding today line",
   "main": "lib/index.js",

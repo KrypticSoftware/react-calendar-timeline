@@ -457,7 +457,7 @@ export default class Item extends Component {
     return (
       <div {...this.props.item.itemProps}
            key={this.itemId}
-           itemRef={el => (this.item = el)}
+           ref={el => (this.item = el)}
            className={classNames}
            title={this.itemDivTitle}
            onMouseDown={this.onMouseDown}
@@ -467,13 +467,13 @@ export default class Item extends Component {
            onDoubleClick={this.handleDoubleClick}
            onContextMenu={this.handleContextMenu}
            style={style}>
-        {this.props.useResizeHandle ? <div dragLeftRef={el => (this.dragLeft = el)} className='rct-drag-left'></div> : ''}
+        {this.props.useResizeHandle ? <div ref={el => (this.dragLeft = el)} className='rct-drag-left'></div> : ''}
         <div className='rct-item-overflow'>
           <div className='rct-item-content'>
             {this.renderContent()}
           </div>
         </div>
-        {this.props.useResizeHandle ? <div dragRightRef={el => (this.dragRight = el)} className='rct-drag-right'></div> : ''}
+        {this.props.useResizeHandle ? <div ref={el => (this.dragRight = el)} className='rct-drag-right'></div> : ''}
       </div>
     )
   }

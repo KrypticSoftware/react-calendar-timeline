@@ -139,6 +139,7 @@ export default class ReactCalendarTimeline extends Component {
       itemTimeStartKey: PropTypes.string,
       itemTimeEndKey: PropTypes.string
     }),
+    headerRef: PropTypes.func,
 
     timeSteps: PropTypes.shape({
       second: PropTypes.number,
@@ -256,6 +257,7 @@ export default class ReactCalendarTimeline extends Component {
     style: {},
     keys: defaultKeys,
     timeSteps: defaultTimeSteps,
+    headerRef: () => {},
 
     // if you pass in visibleTimeStart and visibleTimeEnd, you must also pass onTimeChange(visibleTimeStart, visibleTimeEnd),
     // which needs to update the props visibleTimeStart and visibleTimeEnd to the ones passed
@@ -964,7 +966,8 @@ export default class ReactCalendarTimeline extends Component {
               stickyOffset={this.props.stickyOffset}
               showPeriod={this.showPeriod}
               headerLabelFormats={this.props.headerLabelFormats}
-              subHeaderLabelFormats={this.props.subHeaderLabelFormats} />
+              subHeaderLabelFormats={this.props.subHeaderLabelFormats}
+              headerRef={this.props.headerRef} />
     )
   }
 
@@ -1217,7 +1220,7 @@ export default class ReactCalendarTimeline extends Component {
                onMouseMove={this.handleMouseMove}
                onMouseUp={this.handleMouseUp}
           >
-            <div canvasComponentRef={el => (this.canvasComponent = el)}
+            <div ref={el => (this.canvasComponent = el)}
                  className='rct-canvas'
                  style={canvasComponentStyle}
                  onDoubleClick={ this.handleDoubleClick }
