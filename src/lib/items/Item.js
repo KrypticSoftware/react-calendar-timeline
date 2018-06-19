@@ -177,10 +177,10 @@ export default class Item extends Component {
   }
 
   mountInteract () {
-    const leftResize = this.props.useResizeHandle ? this.refs.dragLeft : true
-    const rightResize = this.props.useResizeHandle ? this.refs.dragRight : true
+    const leftResize = this.props.useResizeHandle ? this.dragLeft : true
+    const rightResize = this.props.useResizeHandle ? this.dragRight : true
 
-    interact(this.refs.item)
+    interact(this.item)
       .resizable({
         edges: {
           left: this.canResizeLeft() && leftResize,
@@ -351,10 +351,10 @@ export default class Item extends Component {
     }
 
     if (interactMounted && (couldResizeLeft !== willBeAbleToResizeLeft || couldResizeRight !== willBeAbleToResizeRight)) {
-      const leftResize = this.props.useResizeHandle ? this.refs.dragLeft : true
-      const rightResize = this.props.useResizeHandle ? this.refs.dragRight : true
+      const leftResize = this.props.useResizeHandle ? this.dragLeft : true
+      const rightResize = this.props.useResizeHandle ? this.dragRight : true
 
-      interact(this.refs.item)
+      interact(this.item)
         .resizable({
           enabled: willBeAbleToResizeLeft || willBeAbleToResizeRight,
           edges: {
@@ -366,7 +366,7 @@ export default class Item extends Component {
         })
     }
     if (interactMounted && couldDrag !== willBeAbleToDrag) {
-      interact(this.refs.item)
+      interact(this.item)
         .draggable({enabled: willBeAbleToDrag})
     }
   }
