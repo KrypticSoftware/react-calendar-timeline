@@ -207,7 +207,7 @@ export default class Header extends Component {
     }
 
     return (
-      <div ref='header' key='header' className='rct-header' onTouchStart={this.touchStart} onTouchEnd={this.touchEnd} onClick={this.periodClick} style={headerStyle}>
+      <div headerRef={el => (this.header = el)} key='header' className='rct-header' onTouchStart={this.touchStart} onTouchEnd={this.touchEnd} onClick={this.periodClick} style={headerStyle}>
         {timeLabels}
       </div>
     )

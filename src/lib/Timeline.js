@@ -1217,7 +1217,7 @@ export default class ReactCalendarTimeline extends Component {
                onMouseMove={this.handleMouseMove}
                onMouseUp={this.handleMouseUp}
           >
-            <div ref={el => (this.canvasComponent = el)}
+            <div canvasComponentRef={el => (this.canvasComponent = el)}
                  className='rct-canvas'
                  style={canvasComponentStyle}
                  onDoubleClick={ this.handleDoubleClick }

@@ -86,7 +86,7 @@ export default class Sidebar extends Component {
       }
     }
 
-    const header = <div ref='sidebarHeader' className='rct-sidebar-header' style={headerStyle}>
+    const header = <div sidebarHeaderRef={el => (this.sidebarHeader = el)} className='rct-sidebar-header' style={headerStyle}>
                      {this.props.children}
                    </div>
 
@@ -108,7 +108,7 @@ export default class Sidebar extends Component {
     })
 
     return (
-      <div ref='sidebar' className={'rct-sidebar' + (isRightSidebar ? ' rct-sidebar-right' : '')} style={sidebarStyle}>
+      <div sidebarRef={el => (this.sidebar = el)} className={'rct-sidebar' + (isRightSidebar ? ' rct-sidebar-right' : '')} style={sidebarStyle}>
         {header}
         <div style={groupsStyle}>
           {groupLines}
