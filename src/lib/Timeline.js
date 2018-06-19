@@ -1205,10 +1205,10 @@ export default class ReactCalendarTimeline extends Component {
     }
 
     return (
-      <div style={this.props.style} ref='container' className='react-calendar-timeline'>
+      <div style={this.props.style} ref={el => (this.container = el)} className='react-calendar-timeline'>
         <div style={outerComponentStyle} className='rct-outer'>
           {sidebarWidth > 0 ? this.sidebar(height, groupHeights, headerHeight) : null}
-          <div ref='scrollComponent'
+          <div scrollRef={el => (this.scrollComponent = el)}
                className='rct-scroll'
                style={scrollComponentStyle}
                onScroll={this.onScroll}
@@ -1217,7 +1217,7 @@ export default class ReactCalendarTimeline extends Component {
                onMouseMove={this.handleMouseMove}
                onMouseUp={this.handleMouseUp}
           >
-            <div ref='canvasComponent'
+            <div ref={el => (this.canvasComponent = el)}
                  className='rct-canvas'
                  style={canvasComponentStyle}
                  onDoubleClick={ this.handleDoubleClick }
